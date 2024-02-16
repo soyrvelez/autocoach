@@ -21,6 +21,7 @@ load_dotenv()
 AUTH0_DOMAIN = os.environ.get("AUTH0_DOMAIN")
 AUTH0_CLIENT_ID = os.environ.get("AUTH0_CLIENT_ID")
 AUTH0_CLIENT_SECRET = os.environ.get("AUTH0_CLIENT_SECRET")
+OPEN_AI_KEY = os.environ.get("OPEN_AI_KEY")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
