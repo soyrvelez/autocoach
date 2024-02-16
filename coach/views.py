@@ -4,6 +4,7 @@ from authlib.integrations.django_client import OAuth
 from django.conf import settings
 from django.urls import reverse
 from urllib.parse import quote_plus, urlencode
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 oauth = OAuth()
@@ -43,6 +44,12 @@ def logout(request):
     )
 
 def index(request):
+
+    user = request.session.get("user")
+    if not user:
+        # User is not authenticated, redirect to login page
+        return HttpResponseRedirect(reverse("login"))
+
     return render(
         request,
         "index.html",
